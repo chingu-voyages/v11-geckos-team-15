@@ -5,6 +5,7 @@ Add-project-description-here | Voyage-11 | https://chingu.io/ | Twitter: https:/
 ## Team Members:
 
 [Noah Maizels](https://github.com/noahniuwa)
+
 [Lee Del Rosario](https://github.com/iamllino)
 
 
