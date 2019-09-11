@@ -1,12 +1,13 @@
 # v11-geckos-team-15
 Add-project-description-here | Voyage-11 | https://chingu.io/ | Twitter: https://twitter.com/ChinguCollabs
 
-
 ## Team Members:
 
 [Noah Maizels](https://github.com/noahniuwa)
 
 [Lee Del Rosario](https://github.com/iamllino)
+
+[Alex Lee](https://github.com/alexlee22)
 
 
 ## Project
@@ -32,3 +33,6 @@ A single page web app which allows for a job search that pulls from multiple ope
 #### Extra Features
 
 1. Live search suggestions
+
+
+### Job API's
