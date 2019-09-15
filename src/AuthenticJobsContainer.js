@@ -56,8 +56,8 @@ class AuthenticJobsContainer extends React.Component {
             {this.state.jobs.map(job => {
               return (
                   <div key={job.id}>
-                    <p>{job.title}</p>
-                    <p>{job.description.slice(0, 200)+"..."}</p>
+                    <p><b>Title: </b>{job.title}</p>
+                    <p><b>Description: </b>{job.description.slice(0, 200)+"..."}</p>
                     <p><a href={job.url} rel="noopener noreferrer" target="_blank">Link</a></p>
                     <br />
                   </div>
