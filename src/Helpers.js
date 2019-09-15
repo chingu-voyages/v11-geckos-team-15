@@ -30,14 +30,15 @@ let searchJuju = (location = "", query = "", page = 0) => {
     jujuContainer.innerHTML = data
     let jobs = jujuContainer.querySelectorAll(".job")
     jobs = Array.prototype.slice.call(jobs)
-    jobs = jobs.map(job => {
+    jobs = jobs.map((job, index) => {
       return {
+        id: index,
         url: job.querySelector(".result").href,
         title: job.querySelector(".result").innerText,
         description: job.querySelector(".description").innerText.replace(/[\.{3}]/g, "").replace(/\s\s+/g, " ").trim().replace(/more$/, ""),
       }
     })
-    console.log("Juju: " + jobs.length)
+    console.log(jobs)
     return jobs
   })
 }

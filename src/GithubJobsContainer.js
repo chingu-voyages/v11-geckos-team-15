@@ -2,7 +2,7 @@ import React from "react"
 
 
 
-class JobsContainer extends React.Component {
+class GithubJobsContainer extends React.Component {
   constructor(props){
     super(props)
     this.state ={
@@ -17,13 +17,24 @@ class JobsContainer extends React.Component {
     fetch(url)
     .then(result => result.json())
     .then(data => {
+      data = data.map((item)=> {
+        let div = document.createElement("div")
+        div.innerHTML = item.description
+        let description = div.innerText
+        return {
+          title: item.title,
+          url: item.url,
+          description: description,
+          id: item.id,
+        }
+      })
       console.log(data)
       this.setState({jobs: data})
     })
   }
 
-  loadJobs(){
-    this.searchGithub()
+  loadJobs(location, query, page){
+    this.searchGithub(location, query, page)
   }
 
   componentDidMount(){
@@ -34,21 +45,26 @@ class JobsContainer extends React.Component {
     if (this.state.jobs !== "Loading"){
       return(
         <div>
+          <div className="section">
+            <div className="title is-2">
+              Github Jobs
+            </div>
+          </div>
+          <div className="section">
           {this.state.jobs.map(job => {
-            let div = document.createElement("div")
-            div.innerHTML = job.description
-            let text = div.innerText
             return (
                 <div key={job.id}>
                   <p>{job.title}</p>
-                  <p>{text.slice(0, 200)+"..."}</p>
-                  <p><a href={job.url}>Link</a></p>
+                  <p>{job.description.slice(0, 200)+"..."}</p>
+                  <p><a href={job.url} rel="noopener noreferrer" target="_blank">Link</a></p>
                   <br />
                 </div>
               )
             })
-          }
+          } 
+          </div>
         </div>
+        
       )
     }
     return("Loading...")
@@ -56,4 +72,4 @@ class JobsContainer extends React.Component {
 
 }
 
-export default JobsContainer
+export default GithubJobsContainer
