@@ -1,8 +1,7 @@
 import React from "react"
 import "./App.css"
-import GithubJobsContainer from "./GithubJobsContainer"
-import JujuJobsContainer from "./JujuJobsContainer"
-import AuthenticJobsContainer from "./AuthenticJobsContainer"
+import JobsContainer from "./JobsContainer"
+import JobSources from "./JobSources"
 
 
 
@@ -11,17 +10,17 @@ function App() {
     <div className="App">
       <div className="columns">
         <div className="column">
-          <GithubJobsContainer />
+          <JobsContainer jobSourceString = "GitHub Jobs" jobSource = {JobSources.searchGithub} />
         </div>  
         <div className="column">
-          <JujuJobsContainer />
+          <JobsContainer jobSourceString = "Authentic Jobs" jobSource = {JobSources.searchAuthentic} />
         </div>
         <div className="column">
-          <AuthenticJobsContainer />
+          <JobsContainer jobSourceString = "Juju Jobs" jobSource = {JobSources.searchJuju} />
         </div>
       </div> 
     </div>
-  );
+  )
 }
 
 export default App
