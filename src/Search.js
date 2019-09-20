@@ -4,15 +4,19 @@ class Search extends React.Component {
   constructor(props){
     super(props)
     this.state ={
-      keywords: "",
-      location: "",
+      fields: {
+        keywords: "",
+        location: "",
+      }
     }
     this.onSearchChange = this.onSearchChange.bind(this)
   }
 
   onSearchChange(event){
-    let inputName = event.target.name
-    this.setState({ inputName: event.target.value })
+    console.log(this.state.fields)
+    const fields = Object.assign({}, this.state.fields)
+    fields[event.target.name] = event.target.value
+    this.setState({ fields })
   }
 
   render(){
