@@ -17,7 +17,7 @@ function searchGithub(location = "", query = "", page = 0) {
           id: item.id,
         }
       })
-      this.setState({jobs: jobs})
+      this.setState({githubJobs: jobs})
     })
 }
 
@@ -38,7 +38,8 @@ function searchAuthentic (location = "", query = "", page = 0) {
           url: item.url,
         }
       })
-      this.setState({jobs: jobs}) 
+      
+      this.setState({authenticJobs: jobs}) 
     })
 }
 
@@ -60,7 +61,7 @@ function searchJuju (location = "", query = "", page = 0) {
           description: job.querySelector(".description").innerText.replace(/[\.{3}]/g, "").replace(/\s\s+/g, " ").trim().replace(/more$/, ""),
         }
       })
-      this.setState({jobs: jobs})
+      this.setState({jujuJobs: jobs})
     })
 }
 
