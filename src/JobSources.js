@@ -2,6 +2,7 @@ import fetch from "node-fetch"
 
 
 function searchGithub(location = "", query = "", page = 0) {
+  console.log("location: "+location+ " query: " + query + " page:" + page)
   let url = `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${query}&location=${location}&page=${page}`
   fetch(url)
     .then(result => result.json())
@@ -19,7 +20,7 @@ function searchGithub(location = "", query = "", page = 0) {
           id: item.id,
         }
       })
-      this.setState({githubJobs: jobs})
+      this.setState({githubJobs: this.state.githubJobs.concat(jobs)})
     })
 }
 
@@ -44,7 +45,7 @@ function searchAuthentic (location = "", query = "", page = 0) {
         }
       })
       
-      this.setState({authenticJobs: jobs}) 
+      this.setState({authenticJobs: this.state.authenticJobs.concat(jobs)}) 
     })
 }
 
@@ -61,7 +62,7 @@ function searchJuju (location = "", query = "", page = 0) {
       jobs = jobs.map((job, index) => {
         //console.log(job.querySelector(".company span").innerText.replace(/[\(\)]/g, ""))
         return {
-          id: index,
+          id: index+job.querySelector(".result").href,
           url: job.querySelector(".result").href,
           title: job.querySelector(".result").innerText,
           location: job.querySelector(".company span").innerText.replace(/[\(\)]/g, ""),
@@ -69,7 +70,7 @@ function searchJuju (location = "", query = "", page = 0) {
           description: job.querySelector(".description").innerText.replace(/[\.{3}]/g, "").replace(/\s\s+/g, " ").trim().replace(/more$/, ""),
         }
       })
-      this.setState({jujuJobs: jobs})
+      this.setState({jujuJobs: this.state.jujuJobs.concat(jobs)})
     })
 }
 

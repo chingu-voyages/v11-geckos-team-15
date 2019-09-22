@@ -6,6 +6,7 @@ class Search extends React.Component {
 
   static propTypes = {
     getJobs: PropTypes.func,
+    getMoreJobs: PropTypes.func,
   }
 
   constructor(props){
@@ -34,7 +35,16 @@ class Search extends React.Component {
 
   render(){
     return(
-      <div>
+      <div style={
+        {
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100px",
+          backgroundColor: "grey",
+        }
+      }>
         <form onSubmit={this.onSubmit}>
           <input 
             name="keywords"
@@ -50,7 +60,8 @@ class Search extends React.Component {
             onChange={this.onSearchChange}
           >  
           </input>
-          <input type="submit" ></input>
+          <input type="submit"></input>
+          <input type="button" value="Load More" onClick={this.props.getMoreJobs}></input>
         </form>
         
       </div>

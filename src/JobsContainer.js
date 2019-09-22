@@ -17,8 +17,9 @@ class JobsContainer extends React.Component {
               </div>
             </div>
             <div className="section">
+    
               {
-                this.props.jobs.map(job => {
+                this.props.jobs.map(job => {   
                   return (
                     <div key={job.id}>
                       <p><b>Title: </b>{job.title}</p>
