@@ -6,12 +6,14 @@ function searchGithub(location = "", query = "", page = 0) {
   fetch(url)
     .then(result => result.json())
     .then(data => {
+      //console.log(data)
       let jobs = data.map((item)=> {
         let div = document.createElement("div")
         div.innerHTML = item.description
         let description = div.innerText
         return {
           title: item.title,
+          location: item.location,
           url: item.url,
           description: description,
           id: item.id,
@@ -27,12 +29,15 @@ function searchAuthentic (location = "", query = "", page = 0) {
   fetch(url)
     .then(result => result.json())
     .then(data => {
+      //console.log(data.listings.listing)
       let jobs = data.listings.listing.map((item) => {
         let div = document.createElement("div")
         div.innerHTML = item.description
         let description = div.innerText
+        //console.log((item.company.location) ? item.company.location.name  : "N/A")
         return {
           id: item.id,
+          location: (item.company.location) ? item.company.location.name  : "",
           description: description,
           title: item.title,
           url: item.url,
@@ -52,11 +57,14 @@ function searchJuju (location = "", query = "", page = 0) {
       jujuContainer.innerHTML = data
       let jobs = jujuContainer.querySelectorAll(".job")
       jobs = Array.prototype.slice.call(jobs)
+      //console.log(jobs)
       jobs = jobs.map((job, index) => {
+        //console.log(job.querySelector(".company span").innerText.replace(/[\(\)]/g, ""))
         return {
           id: index,
           url: job.querySelector(".result").href,
           title: job.querySelector(".result").innerText,
+          location: job.querySelector(".company span").innerText.replace(/[\(\)]/g, ""),
           // eslint-disable-next-line no-useless-escape
           description: job.querySelector(".description").innerText.replace(/[\.{3}]/g, "").replace(/\s\s+/g, " ").trim().replace(/more$/, ""),
         }
