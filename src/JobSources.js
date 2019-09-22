@@ -2,7 +2,7 @@ import fetch from "node-fetch"
 
 
 function searchGithub(location = "", query = "", page = 0) {
-  console.log("location: "+location+ " query: " + query + " page:" + page)
+  //console.log("location: "+location+ " query: " + query + " page:" + page)
   let url = `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${query}&location=${location}&page=${page}`
   fetch(url)
     .then(result => result.json())
@@ -25,6 +25,7 @@ function searchGithub(location = "", query = "", page = 0) {
 }
 
 function searchAuthentic (location = "", query = "", page = 0) {
+  console.log("Location: " + location + " query: " + query + " page: " + page)
   query = query.replace(/\s+/g, " ").trim().split(" ").join(",")
   let url = `https://cors-anywhere.herokuapp.com/https://authenticjobs.com/api/?api_key=d6ff48adcf9b56967e2dbdded1d460c4&method=aj.jobs.search&format=json&location=${location}&page=${page}&keywords=${query}`
   fetch(url)
