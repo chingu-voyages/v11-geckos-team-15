@@ -42,11 +42,14 @@ class Search extends React.Component {
           left: 0,
           width: "100%",
           height: "100px",
-          backgroundColor: "grey",
+          backgroundColor: "#F3F3F3",
         }
       }>
+        <div style={{padding: "30px"}}>
         <form onSubmit={this.onSubmit}>
           <input 
+            style={{width: "180px"}}
+            className="input is-primary"
             name="keywords"
             type="text" 
             placeholder="Keywords"
@@ -54,16 +57,18 @@ class Search extends React.Component {
           >    
           </input>
           <input 
+            style={{width: "180px"}}
+            className="input is-primary"
             name="location"
             type="text" 
             placeholder="Location"
             onChange={this.onSearchChange}
           >  
           </input>
-          <input type="submit"></input>
-          <input type="button" value="Load More" onClick={this.props.getMoreJobs}></input>
+          <input style ={{marginLeft: "20px"}} type="submit" class="button"></input>
+          <input  style ={{marginLeft: "10px"}} class="button" type="button" value="Load More" onClick={this.props.getMoreJobs}></input>
         </form>
-        
+        </div>
       </div>
     )
   }
