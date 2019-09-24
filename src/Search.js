@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import "./App.sass"
 
 
 class Search extends React.Component {
@@ -35,40 +36,29 @@ class Search extends React.Component {
 
   render(){
     return(
-      <div style={
-        {
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100px",
-          backgroundColor: "#F3F3F3",
-        }
-      }>
-        <div style={{padding: "30px"}}>
+      <div className="search-container">
         <form onSubmit={this.onSubmit}>
-          <input 
-            style={{width: "180px"}}
-            className="input is-primary"
-            name="keywords"
-            type="text" 
-            placeholder="Keywords"
-            onChange={this.onSearchChange}
-          >    
-          </input>
-          <input 
-            style={{width: "180px"}}
-            className="input is-primary"
-            name="location"
-            type="text" 
-            placeholder="Location"
-            onChange={this.onSearchChange}
-          >  
-          </input>
-          <input style ={{marginLeft: "20px"}} type="submit" class="button"></input>
-          <input  style ={{marginLeft: "10px"}} class="button" type="button" value="Load More" onClick={this.props.getMoreJobs}></input>
+          <div className="flex-container">
+            <input 
+              className="search-input"
+              name="keywords"
+              type="text" 
+              placeholder="Keywords"
+              onChange={this.onSearchChange}
+            >    
+            </input>
+            <input 
+              className="search-input"
+              name="location"
+              type="text" 
+              placeholder="Location"
+              onChange={this.onSearchChange}
+            >  
+            </input>
+            <div type="submit" onClick={this.onSubmit} className="search-button">Submit</div>
+            <div className="search-button" type="button" value="Load More" onClick={this.props.getMoreJobs}>Get More Results</div>
+          </div>
         </form>
-        </div>
       </div>
     )
   }

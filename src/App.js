@@ -1,5 +1,5 @@
 import React from "react"
-import "./App.css"
+import "./App.sass"
 import JobsContainer from "./JobsContainer"
 import JobSources from "./JobSources"
 import Search from "./Search"
