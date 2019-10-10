@@ -10,9 +10,9 @@ class JobsContainer extends React.Component {
   
   render(){
         return(
-          <div>
-            <div className="section">
-              <div className="title is-2">
+          <div className="jobs">
+            <div>
+              <div className="title">
                 {this.props.jobSourceString}
               </div>
             </div>
