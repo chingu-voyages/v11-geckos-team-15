@@ -36,9 +36,9 @@ class Search extends React.Component {
 
   render(){
     return(
-      <div className="search-container">
+      <div className="search">
         <form onSubmit={this.onSubmit}>
-          <div className="flex-container">
+          <div className="container-flex search-container">
             <input 
               className="search-input"
               name="keywords"
@@ -55,10 +55,13 @@ class Search extends React.Component {
               onChange={this.onSearchChange}
             >  
             </input>
-            <div type="submit" onClick={this.onSubmit} className="search-button">Submit</div>
-            <div className="search-button" type="button" value="Load More" onClick={this.props.getMoreJobs}>Get More Results</div>
+            <div className="container-flex buttons-container">
+              <div type="submit" onClick={this.onSubmit} className="search-button">Submit</div>
+              <div className="search-button" type="button" value="Load More" onClick={this.props.getMoreJobs}>Get More Results</div>  
+            </div>
           </div>
         </form>
+        <p className="main-title">Job Search Aggregator</p>
       </div>
     )
   }

@@ -68,10 +68,10 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        <div className="section">
+        <header className="">
           <Search getJobs = {this.getJobs} getMoreJobs = {this.getMoreJobs}/>
-        </div>
-        <div className="columns">
+        </header>
+        <div className="main container-flex">
           <div className="column">
             <JobsContainer jobSourceString = "GitHub Jobs" jobs = {this.state.githubJobs.slice(0,this.state.resultsLimit)} />
           </div>  

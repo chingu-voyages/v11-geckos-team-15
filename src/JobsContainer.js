@@ -16,8 +16,7 @@ class JobsContainer extends React.Component {
                 {this.props.jobSourceString}
               </div>
             </div>
-            <div className="section">
-    
+            <div className="job">
               {
                 this.props.jobs.map(job => {   
                   return (
