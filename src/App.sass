@@ -55,11 +55,19 @@
 	background-color: white
 	flex-shrink: 0
 
-.search-button:hover
+a:hover, a:focus		
+	font-weight: 700
+	font-size: 2rem
+
+
+
+.search-button:hover, .search-button:focus
 	cursor: pointer
+	background-color: #F3F3F3
 
 .search-button:active
-	background-color: #F3F3F3
+	background-color: black
+	color: white
 
 .search-input
 	margin-right: 10px
@@ -71,9 +79,10 @@
 	margin-left: 20px
 
 form
-	width: 100%
+
 	display: flex
 	align-items: center
+	justify-content: space-between
 
 .buttons-container 
 	justify-content: space-around
@@ -86,12 +95,18 @@ form
 		width: 80%
 		align-content: center
 		justify-content: space-around
-		margin-top: 0
-		margin-left: auto
-		margin-right: auto
-	
+		
+
+
+
+	.main-title
+		max-width: 50px
+		font-size: 1.3rem
+		padding-right: 80px
+
 	.search
 		height: 200px
+		justify-content: space-evenly
 
 	.search-input
 		margin: 0
@@ -99,7 +114,7 @@ form
 	.search-button
 		margin: 0
 		width: 30%
-		min-width: 130px
+		min-width: 75px
 		flex-shrink: 0
 
 	
