@@ -14,6 +14,9 @@ class App extends React.Component {
       githubJobs: [],
       jujuJobs: [],
       authenticJobs: [],
+      githubLoading: false,
+      jujuLoading: false,
+      authenticLoading: false,
       savedJobs: [],
       resultsLimit: 10,
       githubIndex: 1,
@@ -89,13 +92,13 @@ class App extends React.Component {
         </header>
         <div className="main container-flex">
           <div className="column">
-            <JobsContainer addClickHandler={this.addSavedJob} jobSourceString = "GitHub Jobs" jobs = {this.state.githubJobs.slice(0,this.state.resultsLimit)} />
+            <JobsContainer loading={this.state.githubLoading} addClickHandler={this.addSavedJob} jobSourceString = "GitHub Jobs" jobs = {this.state.githubJobs.slice(0,this.state.resultsLimit)} />
           </div>  
           <div className="column">
-            <JobsContainer addClickHandler={this.addSavedJob} jobSourceString = "Authentic Jobs" jobs = {this.state.authenticJobs.slice(0,this.state.resultsLimit)} />
+            <JobsContainer loading={this.state.authenticLoading} addClickHandler={this.addSavedJob} jobSourceString = "Authentic Jobs" jobs = {this.state.authenticJobs.slice(0,this.state.resultsLimit)} />
           </div>
           <div className="column">
-            <JobsContainer addClickHandler={this.addSavedJob} jobSourceString = "Juju Jobs" jobs = {this.state.jujuJobs.slice(0,this.state.resultsLimit)}/>
+            <JobsContainer loading={this.state.jujuLoading} addClickHandler={this.addSavedJob} jobSourceString = "Juju Jobs" jobs = {this.state.jujuJobs.slice(0,this.state.resultsLimit)}/>
           </div>
           <div className="column">
             <SavedJobsContainer removeClickHandler={this.removeSavedJob} jobSourceString = "Saved Jobs" jobs={this.state.savedJobs}/>

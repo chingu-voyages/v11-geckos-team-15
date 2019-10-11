@@ -2,6 +2,7 @@ import fetch from "node-fetch"
 
 
 function searchGithub(location = "", query = "", page = 0) {
+  this.setState({githubLoading: true})
   //console.log("location: "+location+ " query: " + query + " page:" + page)
   let url = `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${query}&location=${location}&page=${page}`
   fetch(url)
@@ -21,11 +22,13 @@ function searchGithub(location = "", query = "", page = 0) {
         }
       })
       this.setState({githubJobs: this.state.githubJobs.concat(jobs)})
+    }).then(data =>{
+      this.setState({githubLoading: false})
     })
 }
 
 function searchAuthentic (location = "", query = "", page = 0) {
-  console.log("Location: " + location + " query: " + query + " page: " + page)
+  this.setState({authenticLoading: true})
   query = query.replace(/\s+/g, " ").trim().split(" ").join(",")
   let url = `https://cors-anywhere.herokuapp.com/https://authenticjobs.com/api/?api_key=d6ff48adcf9b56967e2dbdded1d460c4&method=aj.jobs.search&format=json&location=${location}&page=${page}&keywords=${query}`
   fetch(url)
@@ -47,10 +50,13 @@ function searchAuthentic (location = "", query = "", page = 0) {
       })
       
       this.setState({authenticJobs: this.state.authenticJobs.concat(jobs)}) 
+    }).then(date => {
+      this.setState({authenticLoading: false})
     })
 }
 
 function searchJuju (location = "", query = "", page = 0) {
+  this.setState({jujuLoading: true})
   let jujuContainer = document.createElement("div")
   let url = `https://cors-anywhere.herokuapp.com/http://www.juju.com/jobs?k=${query}&l=${location}&r=20&page=${page}`
   return fetch(url)
@@ -72,6 +78,8 @@ function searchJuju (location = "", query = "", page = 0) {
         }
       })
       this.setState({jujuJobs: this.state.jujuJobs.concat(jobs)})
+    }).then(data =>{
+      this.setState({jujuLoading: false})
     })
 }
 
