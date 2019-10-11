@@ -5,6 +5,8 @@
 	font-family: 'Turret Road'
 	box-sizing: border-box
 
+.links-container 
+	margin-top: 5px
 
 .title
 	text-decoration: underline
@@ -19,7 +21,10 @@
 .main-title
 	font-size: 1.3rem
 	font-weight: 700
-	max-width: 180px
+	width: 180px
+	text-align: center
+	padding-top: 10px
+	align-self: flex-start
 
 .search
 	position: fixed
@@ -56,12 +61,21 @@
 	background-color: white
 	flex-shrink: 0
 
-a:hover, a:focus		
+a:hover	
 	font-weight: 700
-	font-size: 2rem
+
+a:visited, a:link
+	color: blue
+
 
 .jobs
-	width: 30vw
+	width: 20vw
+
+
+
+.job
+	border: 1px solid rgba(0, 0, 0, .2)
+	font-size: .7rem
 
 .search-button:hover, .search-button:focus
 	cursor: pointer
@@ -98,25 +112,32 @@ form
 		align-content: center
 		justify-content: space-around
 		
-	form 
-		width: 50%
-
 	.main-title
-		max-width: 50px
-		font-size: 1.1rem
-		padding-right: 80px
-		width: 40%
+		font-size: 1.2rem
+		order: 1
+		width: 100%
+	
+	.jobs
+		padding-top: 40px
+
+	.form 
+		width: 100%
+		align-self: center
+		order: 2
 
 	.search
-		height: 200px
-		justify-content: space-around
+		height: 250px
+		justify-content: space-evenly
+		flex-direction: column
+		
 
 	.search-input
 		margin: 0
+		width: 100%
 
 	.search-button
-		margin: 0
-		width: 30%
+		margin: 5px
+		width: 50%
 		min-width: 75px
 		flex-shrink: 0
 

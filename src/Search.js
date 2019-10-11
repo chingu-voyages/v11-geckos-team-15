@@ -37,7 +37,7 @@ class Search extends React.Component {
   render(){
     return(
       <div className="search">
-        <form onSubmit={this.onSubmit}>
+        <form className="form" onSubmit={this.onSubmit}>
           <div className="container-flex search-container">
             <input 
               className="search-input"

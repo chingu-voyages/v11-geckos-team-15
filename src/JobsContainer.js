@@ -16,15 +16,15 @@ class JobsContainer extends React.Component {
                 {this.props.jobSourceString}
               </div>
             </div>
-            <div className="job">
+            <div >
               {
                 this.props.jobs.map(job => {   
                   return (
-                    <div key={job.id}>
+                    <div className="job" key={job.id}>
                       <p><b>Title: </b>{job.title}</p>
                       <p><b>Location: </b>{job.location}</p>
                       <p><b>Description: </b>{job.description.slice(0, 100)+"..."}</p>
-                      <p><a href={job.url} rel="noopener noreferrer" target="_blank">Link</a></p>
+                      <p className="links-container"><a href={job.url} rel="noopener noreferrer" target="_blank">Link</a><span>  </span><a rel="noopener noreferrer" href="#" target="_blank">Add</a></p>
                       <br />
                     </div>
                   )

@@ -81,6 +81,9 @@ class App extends React.Component {
           <div className="column">
             <JobsContainer jobSourceString = "Juju Jobs" jobs = {this.state.jujuJobs.slice(0,this.state.resultsLimit)}/>
           </div>
+          <div className="column">
+            <JobsContainer jobSourceString = "Saved Jobs" jobs={[]}/>
+          </div>
         </div> 
       </div>
     )
