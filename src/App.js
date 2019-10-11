@@ -1,6 +1,7 @@
 import React from "react"
 import "./App.sass"
 import JobsContainer from "./JobsContainer"
+import SavedJobsContainer from "./SavedJobsContainer"
 import JobSources from "./JobSources"
 import Search from "./Search"
 
@@ -13,6 +14,7 @@ class App extends React.Component {
       githubJobs: [],
       jujuJobs: [],
       authenticJobs: [],
+      savedJobs: [],
       resultsLimit: 10,
       githubIndex: 1,
       jujuIndex: 0,
@@ -26,6 +28,8 @@ class App extends React.Component {
     this.searchGithub = JobSources.searchGithub.bind(this)
     this.searchJuju = JobSources.searchJuju.bind(this)
     this.searchAuthentic = JobSources.searchAuthentic.bind(this)
+    this.addSavedJob = this.addSavedJob.bind(this)
+    this.removeSavedJob = this.removeSavedJob.bind(this)
   }
 
   getJobs(location, keywords){
@@ -65,6 +69,18 @@ class App extends React.Component {
     }
   }
 
+  addSavedJob(job){
+    let currentJobs = this.state.savedJobs
+    if (!currentJobs.includes(job)) currentJobs.push(job)
+    this.setState({savedJobs: currentJobs})
+  }
+
+  removeSavedJob(targetJob){
+    let currentJobs = this.state.savedJobs
+    currentJobs = currentJobs.filter(job => targetJob.id !== job.id)
+    this.setState({savedJobs: currentJobs})
+  }
+
   render(){
     return (
       <div className="App">
@@ -73,16 +89,16 @@ class App extends React.Component {
         </header>
         <div className="main container-flex">
           <div className="column">
-            <JobsContainer jobSourceString = "GitHub Jobs" jobs = {this.state.githubJobs.slice(0,this.state.resultsLimit)} />
+            <JobsContainer addClickHandler={this.addSavedJob} jobSourceString = "GitHub Jobs" jobs = {this.state.githubJobs.slice(0,this.state.resultsLimit)} />
           </div>  
           <div className="column">
-            <JobsContainer jobSourceString = "Authentic Jobs" jobs = {this.state.authenticJobs.slice(0,this.state.resultsLimit)} />
+            <JobsContainer addClickHandler={this.addSavedJob} jobSourceString = "Authentic Jobs" jobs = {this.state.authenticJobs.slice(0,this.state.resultsLimit)} />
           </div>
           <div className="column">
-            <JobsContainer jobSourceString = "Juju Jobs" jobs = {this.state.jujuJobs.slice(0,this.state.resultsLimit)}/>
+            <JobsContainer addClickHandler={this.addSavedJob} jobSourceString = "Juju Jobs" jobs = {this.state.jujuJobs.slice(0,this.state.resultsLimit)}/>
           </div>
           <div className="column">
-            <JobsContainer jobSourceString = "Saved Jobs" jobs={[]}/>
+            <SavedJobsContainer removeClickHandler={this.removeSavedJob} jobSourceString = "Saved Jobs" jobs={this.state.savedJobs}/>
           </div>
         </div> 
       </div>

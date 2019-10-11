@@ -1,12 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-class JobsContainer extends React.Component {
+class SavedJobsContainer extends React.Component {
 
   static propTypes = {
     jobSourceString: PropTypes.string,
     jobs: PropTypes.array,
-    addClickHandler: PropTypes.func,
+    removeClickHandler: PropTypes.func,
   }
   
   render(){
@@ -25,7 +25,7 @@ class JobsContainer extends React.Component {
                       <p><b>Title: </b>{job.title}</p>
                       <p><b>Location: </b>{job.location}</p>
                       <p><b>Description: </b>{job.description.slice(0, 100)+"..."}</p>
-                      <p className="links-container"><a href={job.url} rel="noopener noreferrer" target="_blank">Link</a><span>  </span><a onClick={()=>{this.props.addClickHandler(job)}} rel="noopener noreferrer" href="javascript:void(0)" >Add</a></p>
+                      <p className="links-container"><a href={job.url} rel="noopener noreferrer" target="_blank">Link</a><span>  </span><a rel="noopener noreferrer" onClick={()=>{this.props.removeClickHandler(job)}} rel="noopener noreferrer" href="javascript:void(0)">Remove</a></p>
                       <br />
                     </div>
                   )
@@ -38,4 +38,4 @@ class JobsContainer extends React.Component {
 
 }
 
-export default JobsContainer
+export default SavedJobsContainer

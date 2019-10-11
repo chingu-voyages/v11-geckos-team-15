@@ -29,7 +29,6 @@ class Search extends React.Component {
   }
 
   onSubmit(event){
-    console.log("Submitted")
     this.props.getJobs(this.state.fields.location, this.state.fields.keywords)
     event.preventDefault()
   }
