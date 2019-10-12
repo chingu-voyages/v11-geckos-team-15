@@ -57,7 +57,6 @@ class App extends React.Component {
         console.log(this.state.location)
         this.searchAuthentic(this.state.location, this.state.keywords, this.state.authenticIndex + 1)
         this.setState({authenticIndex: this.state.authenticIndex + 1})
-        //console.log("authentic"+this.state.authenticIndex)
       }
       if (this.state.jujuJobs.length < this.state.resultsLimit + 10) {
         this.searchJuju(this.state.location, this.state.keywords, this.state.jujuIndex + 1)
