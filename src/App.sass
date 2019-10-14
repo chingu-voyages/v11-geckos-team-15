@@ -1,19 +1,25 @@
 
 *
-	margin: 0
 	padding: 0
-	font-family: Arial, Helvetica, sans-serif
+	font-family: 'Rubik', sans-serif
 	box-sizing: border-box
+	color: white
+	background-color: #0C0032
+	
 
+*::placeholder
+	color: white
 
 .links-container 
 	margin-top: 5px
 
 .title
-	text-decoration: underline
-	display: inline-block
+	border-bottom: 1px solid white
+	margin-bottom: 1rem
+	display: block
+	font-size: 1.5rem
 	padding-bottom: 30px
-	height: 70px
+	text-align: center
 
 .center 
 	justify-content: center
@@ -27,6 +33,7 @@
 	text-align: center
 	padding-top: 10px
 	align-self: flex-start
+	background-color: #1A0061
 
 .search
 	position: fixed
@@ -35,7 +42,7 @@
 	left: 0
 	width: 100vw
 	height: 150px
-	background-color: #F3F3F3
+	background-color: #1A0061
 	align-content: center
 	align-items: center
 	justify-content: space-between
@@ -56,39 +63,47 @@
 	margin-left: 10px
 	padding: 5px
 	display: inline-block
-	border-style: solid 
-	border-color: black
-	border-width: 1px
-	border-radius: 5px
-	background-color: white
+	border: 1px solid rgba(0, 0, 0, .1)
+	border-radius: 3px
+	background-color: #3500D4
 	flex-shrink: 0
+	color: white
 
 a:hover	
 	font-weight: 700
 
 a:visited, a:link
-	color: blue
+	color: white
 
 
 .jobs
-	width: 20vw
+	width: 22.5vw
 
 .loading
 	margin-top: 10px
 
-.ellipsis
-	text-overflow: clip
+.ellipsis *
+	text-overflow: ellipsis
   white-space: nowrap
   overflow: hidden
 
 .job
-	border: 1px solid rgba(0, 0, 0, .2)
+	background-color: #3500D4
+	padding: 3px
+	margin: 8px
+	border-radius: 5px
+
+.job * 
+	background-color: #3500D4
+
+.jobField
+	background-color: #3500D4
 	
 	
 
 .search-button:hover, .search-button:focus
 	cursor: pointer
-	background-color: #F3F3F3
+	background-color: #220090
 
 .search-button:active
 	background-color: black
@@ -100,18 +115,23 @@ a:visited, a:link
 	font-size: 16px
 	flex-shrink: 0
 	border: 1px solid grey
+	background-color: #1A0061
 
 	
 .search-container
 	margin-left: 20px
+	background-color: #1A0061
+	
 
 form
 	display: flex
 	align-items: center
 	justify-content: space-around
+	background-color: #1A0061
 
 .buttons-container 
 	justify-content: space-around
+	background-color: #1A0061
 
 @media (max-width: 780px)
 
@@ -127,10 +147,14 @@ form
 		width: 100%
 
 	.job
-		font-size: .7rem
+		font-size: .6rem
 	
 	.jobs
 		padding-top: 40px
+		width: 24vw 
+
+	.title 
+		font-size: 1.2rem
 
 	.form 
 		width: 100%

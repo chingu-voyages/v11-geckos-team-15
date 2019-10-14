@@ -20,19 +20,17 @@ class JobsContainer extends React.Component {
     }
         return(
           <div className="jobs">
-            <div>
-              <div className="title">
-                {this.props.jobSourceString}
-              </div>
+            <div className="title">
+              {this.props.jobSourceString}
             </div>
             <div >
               {
                 this.props.jobs.map(job => {   
                   return (
-                    <div className="job" key={job.id}>
+                    <div className="job ellipsis" key={job.id}>
                       <p><b>Title: </b>{job.title}</p>
                       <p><b>Location: </b>{job.location}</p>
-                      <p className="ellepsis" ><b>Description: </b>{job.description.slice(0, 100)+"..."}</p>
+                      <p><b>Description: </b>{job.description.slice(0, 100)+"..."}</p>
                       <p className="links-container"><a href={job.url} rel="noopener noreferrer" target="_blank">Link</a><span>  </span><a onClick={()=>{this.props.addClickHandler(job)}} rel="noopener noreferrer" href="javascript:void(0)" >Add</a></p>
                       <br />
                     </div>
