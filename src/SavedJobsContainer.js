@@ -25,7 +25,7 @@ class SavedJobsContainer extends React.Component {
                       <p><b>Title: </b>{job.title}</p>
                       <p><b>Location: </b>{job.location}</p>
                       <p><b>Description: </b>{job.description.slice(0, 100)+"..."}</p>
-                      <p className="links-container"><a href={job.url} rel="noopener noreferrer" target="_blank">Link</a><span>  </span><a rel="noopener noreferrer" onClick={()=>{this.props.removeClickHandler(job)}} rel="noopener noreferrer" href="javascript:void(0)">Remove</a></p>
+                      <p className="links-container"><a className="job-button" href={job.url} rel="noopener noreferrer" target="_blank">Link</a><span>  </span><a className="job-button" rel="noopener noreferrer" onClick={()=>{this.props.removeClickHandler(job)}} rel="noopener noreferrer" href="javascript:void(0)">Remove</a></p>
                       <br />
                     </div>
                   )
